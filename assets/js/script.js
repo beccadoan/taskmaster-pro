@@ -126,14 +126,24 @@ $(this).children().each(function() {
 
 // trim down list's ID to match the object property
 var arrName = $(this).attr("id").replace("list-","");
-console.log(arrName)
 
 // update array on tasks object and save
 tasks[arrName] = tempArr;
-console.log(tempArr);
 saveTasks();
   }
 });
+
+$("#trash").droppable({
+  accept: ".card .list-group-item",
+  tolerance: "touch",
+  drop: function(event, ui) {
+    ui.draggable.remove();
+  },
+  over: function(event, ui) {
+  },
+  out: function(event, ui) {
+  }
+})
 
 
 // modal was triggered
