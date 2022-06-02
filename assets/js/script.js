@@ -106,12 +106,19 @@ $(".card .list-group").sortable({
   tolerance: "pointer",
   helper: "clone",
   activate: function(event) {
+    $(this).addClass("dropover");
+    $(".bottom-trash").addClass("bottom-trash-drag");
   },
   deactivate: function(event) {
+    $(this).removeClass("dropover");
+    $(".bottom-trash").removeClass("bottom-trash-drag");
+
   },
   over: function(event) {
+    $(event.target).addClass("dropover-active");
   },
   out: function(event) {
+    $(event.target).removeClass("dropover-active");
   },
   update: function(event) {
     // array to store the task data in
